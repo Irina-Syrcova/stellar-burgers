@@ -1,16 +1,17 @@
 import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
-import { getAllIngredients } from '../slices/ingredientsSlice';
+import { getAllIngredients } from '../../services/slices/ingredientsSlice';
 import { useDispatch, useSelector } from '../../services/store';
 import {
   addIngredient,
+  clearOrderModalData,
   getOrderIngredients,
   postOrders
-} from '../slices/constructorSlice';
+} from '../../services/slices/constructorSlice';
 import { useNavigate } from 'react-router-dom';
-import { getIsAuth } from '../slices/userSlice';
-import { getFeeds } from '../slices/feedsSlice';
+import { getIsAuth } from '../../services/slices/userSlice';
+import { getFeeds } from '../../services/slices/feedsSlice';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
@@ -18,7 +19,7 @@ export const BurgerConstructor: FC = () => {
   const navigate = useNavigate();
   const constructorItems = useSelector(getOrderIngredients).constructorItems;
   const orderRequest = useSelector(getOrderIngredients).orderRequest;
-  const orderModalData = useSelector(getOrderIngredients).orderModalData;
+  let orderModalData = useSelector(getOrderIngredients).orderModalData;
   const ingredients = constructorItems.ingredients;
   const bun = constructorItems.bun;
   const isAuth = useSelector(getIsAuth);
@@ -33,8 +34,7 @@ export const BurgerConstructor: FC = () => {
     }
   };
   const closeOrderModal = () => {
-    dispatch(getFeeds);
-    navigate('/feed');
+    dispatch(clearOrderModalData());
   };
 
   const price = useMemo(

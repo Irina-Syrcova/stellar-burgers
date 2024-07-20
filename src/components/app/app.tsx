@@ -15,10 +15,9 @@ import styles from './app.module.css';
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from '../../services/store';
-import { getIngredients } from '../slices/ingredientsSlice';
+import { getIngredients } from '../../services/slices/ingredientsSlice';
 import { useEffect } from 'react';
-import { getFeeds } from '../slices/feedsSlice';
-import { getUser, userOrders } from '../slices/userSlice';
+import { getUser } from '../../services/slices/userSlice';
 import { ProtectedRoute } from '../protected-route';
 
 const App = () => {
@@ -29,9 +28,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getIngredients());
-    dispatch(getFeeds());
     dispatch(getUser());
-    dispatch(userOrders());
   }, []);
 
   return (

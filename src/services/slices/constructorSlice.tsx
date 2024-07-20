@@ -86,6 +86,9 @@ export const constructorSlice = createSlice({
           state.constructorItems.ingredients[currentIndex - 1];
         state.constructorItems.ingredients[currentIndex - 1] = action.payload;
       }
+    },
+    clearOrderModalData: (state) => {
+      state.orderModalData = null;
     }
   },
   selectors: {
@@ -116,7 +119,8 @@ export const {
   addIngredient,
   removeIngridient,
   moveDownIngridient,
-  moveUpIngridient
+  moveUpIngridient,
+  clearOrderModalData
 } = constructorSlice.actions;
 
 export const { getOrderIngredients } = constructorSlice.selectors;

@@ -8,6 +8,7 @@ export const getOrders = createAsyncThunk('order/get', async (number: number) =>
 
 interface TOrderState {
   orders: Array<TOrder>;
+
   error: string | undefined;
   loading: boolean;
 }

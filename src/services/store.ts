@@ -5,11 +5,11 @@ import {
   useDispatch as dispatchHook,
   useSelector as selectorHook
 } from 'react-redux';
-import ingredientReducer from '../components/slices/ingredientsSlice';
-import feedsReducer from '../components/slices/feedsSlice';
-import orderReducer from '../components/slices/orderDataSlice';
-import constructorReducer from '../components/slices/constructorSlice';
-import userReducer from '../components/slices/userSlice';
+import ingredientReducer from './slices/ingredientsSlice';
+import feedsReducer from './slices/feedsSlice';
+import orderReducer from './slices/orderDataSlice';
+import constructorReducer from './slices/constructorSlice';
+import userReducer from './slices/userSlice';
 
 const rootReducer = combineReducers({
   ingredients: ingredientReducer,
