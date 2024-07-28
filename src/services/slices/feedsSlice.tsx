@@ -1,4 +1,4 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../utils/burger-api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -59,5 +59,5 @@ export const {
   getFeedsTotal,
   getFeedsTotalToday
 } = feedsSlice.selectors;
-
+export { initialState as feedsInitialState };
 export default feedsSlice.reducer;

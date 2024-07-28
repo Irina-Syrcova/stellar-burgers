@@ -1,4 +1,4 @@
-import { orderBurgerApi } from '@api';
+import { orderBurgerApi } from '../../utils/burger-api';
 import {
   createAsyncThunk,
   createSlice,
@@ -111,6 +111,7 @@ export const constructorSlice = createSlice({
         state.constructorItems.bun = null;
         state.constructorItems.ingredients = [];
         state.orderRequest = false;
+        console.log(action.payload);
       });
   }
 });
@@ -124,5 +125,5 @@ export const {
 } = constructorSlice.actions;
 
 export const { getOrderIngredients } = constructorSlice.selectors;
-
+export { initialState as constructorInitialState };
 export default constructorSlice.reducer;
