@@ -1,4 +1,4 @@
-import { getIngredientsApi } from '@api';
+import { getIngredientsApi } from '../../utils/burger-api';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
 
@@ -46,5 +46,5 @@ export const ingredientSlice = createSlice({
 
 export const { getAllIngredients, getIngredientsLoading, getIngredientsError } =
   ingredientSlice.selectors;
-
+export { initialState as ingredientsInitialState };
 export default ingredientSlice.reducer;

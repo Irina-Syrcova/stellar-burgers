@@ -9,7 +9,7 @@ import {
   TLoginData,
   TRegisterData,
   updateUserApi
-} from '@api';
+} from '../../utils/burger-api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder, TUser } from '@utils-types';
 import { setCookie } from '../../utils/cookie';
@@ -125,6 +125,7 @@ export const userSlice = createSlice({
         state.loading = true;
       })
       .addCase(getUser.rejected, (state, action) => {
+        state.isAuth = true;
         state.loading = false;
         state.error = action.error.message;
       })
@@ -173,5 +174,5 @@ export const userSlice = createSlice({
 
 export const { getUserName, getUserInfo, getIsAuth, getUserOrders } =
   userSlice.selectors;
-
+export { initialState as userInitialState };
 export default userSlice.reducer;
